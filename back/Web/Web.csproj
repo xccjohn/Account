@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF8846C0-D2AF-418D-A6A0-A7D82D80213B}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NDatabase3, Version=3.8.0.47, Culture=neutral, PublicKeyToken=31d8e3cda240c056, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDatabase.3.8.0\lib\net40\NDatabase3.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net40-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\RequestEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\base.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\ui.jqgrid.css" />
+    <Content Include="Content\themes\bootstrap.css" />
+    <Content Include="Content\themes\base\img\AngularJS-small.png" />
+    <Content Include="Content\themes\base\img\angular_parts.png" />
+    <Content Include="Content\themes\base\img\bullet.png" />
+    <Content Include="Content\themes\base\img\form_data_flow.png" />
+    <Content Include="Content\themes\base\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\themes\base\img\glyphicons-halflings.png" />
+    <Content Include="Content\themes\base\img\guide\about_model_final.png" />
+    <Content Include="Content\themes\base\img\guide\about_view_final.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-controller.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-directive.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-model.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-module-injector.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-runtime.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-scope.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-startup.png" />
+    <Content Include="Content\themes\base\img\guide\concepts-view.png" />
+    <Content Include="Content\themes\base\img\guide\di_sequence_final.png" />
+    <Content Include="Content\themes\base\img\guide\dom_scope_final.png" />
+    <Content Include="Content\themes\base\img\guide\hashbang_vs_regular_url.jpg" />
+    <Content Include="Content\themes\base\img\guide\scenario_runner.png" />
+    <Content Include="Content\themes\base\img\guide\simple_scope_final.png" />
+    <Content Include="Content\themes\base\img\helloworld.png" />
+    <Content Include="Content\themes\base\img\helloworld_2way.png" />
+    <Content Include="Content\themes\base\img\One_Way_Data_Binding.png" />
+    <Content Include="Content\themes\base\img\tutorial\catalog_screen.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_00.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_00_final.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_02.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_03.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_04.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_07_final.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_08-09_final.png" />
+    <Content Include="Content\themes\base\img\tutorial\tutorial_10-11_final.png" />
+    <Content Include="Content\themes\base\img\tutorial\xhr_service_final.png" />
+    <Content Include="Content\themes\base\img\Two_Way_Data_Binding.png" />
+    <Content Include="Content\themes\bootstrap.min.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="CustomerScripts\view.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\jqGrid\js\Changes.txt" />
+    <Content Include="Scripts\jqGrid\js\grid.base.js" />
+    <Content Include="Scripts\jqGrid\js\grid.celledit.js" />
+    <Content Include="Scripts\jqGrid\js\grid.common.js" />
+    <Content Include="Scripts\jqGrid\js\grid.custom.js" />
+    <Content Include="Scripts\jqGrid\js\grid.formedit.js" />
+    <Content Include="Scripts\jqGrid\js\grid.grouping.js" />
+    <Content Include="Scripts\jqGrid\js\grid.import.js" />
+    <Content Include="Scripts\jqGrid\js\grid.inlinedit.js" />
+    <Content Include="Scripts\jqGrid\js\grid.jqueryui.js" />
+    <Content Include="Scripts\jqGrid\js\grid.loader.js" />
+    <Content Include="Scripts\jqGrid\js\grid.postext.js" />
+    <Content Include="Scripts\jqGrid\js\grid.setcolumns.js" />
+    <Content Include="Scripts\jqGrid\js\grid.subgrid.js" />
+    <Content Include="Scripts\jqGrid\js\grid.tbltogrid.js" />
+    <Content Include="Scripts\jqGrid\js\grid.treegrid.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\jqGrid\js\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\jqGrid\js\install.txt" />
+    <Content Include="Scripts\jqGrid\js\jqDnR.js" />
+    <Content Include="Scripts\jqGrid\js\jqModal.js" />
+    <Content Include="Scripts\jqGrid\js\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.fmatter.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jqGrid\js\jquery.searchFilter.js" />
+    <Content Include="Scripts\jqGrid\js\JsonXml.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\ui-bootstrap-0.3.0.js" />
+    <Content Include="Scripts\ui-bootstrap-0.3.0.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.3.0.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.3.0.min.js" />
+    <Content Include="CustomerScripts\Home\Student.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{7e9687f2-a09f-4db5-a532-9e24166b0195}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4123</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:16956/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

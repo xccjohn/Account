@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+<script src="@Url.Content("~/CustomerScripts/home/Student.js")" ></script>
+<section>
+    <div class="page-header">
+        <h3>Getting started</h3>
+    </div>       
+    <div class="row">
+        <div class="span12">
+            <form name="myForm" ng-controller="studentCtrl" ng-submit="post()" ng-init="entity.Name='';entity.Age='';entity.Tel='';entity.Address='';entity.Id=''">
+                <table width="100%">
+                    <tr class="grid-hearder">
+                        <th>name</th>
+                        <th>age</th>
+                        <th>tel</th>
+                        <th>address</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr ng-repeat="item in items" ng-click="" class="grid-body">
+                        <td>{{item.Name}}</td>
+                        <td>{{item.Age}}</td>
+                        <td>{{item.Tel}}</td>
+                        <td>{{item.Address}}</td>
+                        <td>
+                            <input class="btn" type="button" value="编辑" ng-click="edit(item)" />
+                            <input class="btn" type="button" value="删除" ng-click="del(item.Id)" />                                     
+                        </td>
+                    </tr>
+                </table>
+                <pagination on-select-page="selectPage(page)" boundary-links="true" num-pages="noOfPages" current-page="currentPage" previous-text="‹" next-text="›" first-text="«" last-text="»" style=" text-align:right;"></pagination>
+              
+                 <div style="margin-top:8px;">
+                    <input  type="hidden" name="id" ng-model="entity.Id"/>
+                    <div style="width: 50%; float: left;">
+                        <label style="float: left; vertical-align: bottom; height: 100%;">姓名:</label>
+                        <div style="float: left;">
+                            <input type="text" ng-model="entity.Name" required name="name" />
+                            <span class="text-error" ng-show="myForm.name.$error.required">*</span>
+                        </div>
+                    </div>
+                    <div style="width: 50%; float: left;">
+                        <label style="float: left; vertical-align: bottom; height: 100%;">年龄:</label>
+                        <div style="float: left;">
+                            <input type="text" ng-model="entity.Age" ng-pattern="/^\d+$/" required name="age" />
+                            <span class="text-error" ng-show="myForm.age.$error.required">*</span>
+                            <span class="text-error" ng-show="myForm.age.$error.pattern">必须为数字</span>
+                        </div>
+                    </div>
+
+                    <div style="width: 50%; float: left;">
+                        <label style="float: left; vertical-align: bottom; height: 100%;">电话:</label>
+                        <div style="float: left;">
+                            <input type="text" ng-model="entity.Tel" required name="tel" ng-pattern="/^1\d{10}$/" />
+                            <span class="text-error" ng-show="myForm.tel.$error.required">*</span>
+                            <span class="text-error" ng-show="myForm.tel.$error.pattern">手机号格式不正确</span>
+                        </div>
+                    </div>
+                    <div style="width: 50%; float: left;">
+                        <label style="float: left; vertical-align: bottom; height: 100%;">地址:</label>
+                        <div style="float: left;">
+                            <input type="text" ng-model="entity.Address" required name="address" />
+                            <span class="text-error" ng-show="myForm.address.$error.required">*</span>
+                        </div>
+                    </div>
+                    <div class="pull-right" style="clear: both;">
+                        <input class="btn" value="提交" type="submit" ng-disabled="myForm.$invalid" />
+                        <input type="button" class="btn" value="清空" ng-click="clear()" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
