@@ -1,4 +1,5 @@
 var http = require('http');
+var sql = require('mssql');
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
@@ -7,11 +8,22 @@ var sys = require('sys');
 var prefix = '/db/';
 var target = 'http://127.0.0.1:5984';
 
+var config = {
+   //driver:'msnodesql',
+   user: 'sa',
+   password: 'Win2003@',
+    server: './SQLEXPRESS',
+   database: 'account'
+}
+
+
 http.createServer(function(request, response) {
 
     console.log('request starting...');
 
     console.log(request.url);
+
+    createSql();
 
     var uri = url.parse(request.url);
     if (uri.pathname.substring(0, prefix.length) != prefix) {
@@ -24,6 +36,29 @@ http.createServer(function(request, response) {
 }).listen(8125);
 
 
+function createSql() {
+    // body...
+    console.log(' createSql');
+    var connection = new sql.Connection(config);
+
+     connection.connect(function(err) {
+        // ... error checks
+        if (err) {
+
+            console.log(err);
+            return;
+        };
+        // Query
+
+        var request = new sql.request(); // or: var request = connection.request();
+        request.query('select * from account', function(err, recordset) {
+            // ... error checks
+           // console.log
+            console.log(recordset[0].number);
+        });
+    });
+}
+
 
 function httpServer(request, response) {
     var filePath = '../web' + request.url;
@@ -32,12 +67,12 @@ function httpServer(request, response) {
     var extname = path.extname(filePath);
     var contentType = 'text/html';
     switch (extname) {
-    case '.js':
-        contentType = 'text/javascript';
-        break;
-    case '.css':
-        contentType = 'text/css';
-        break;
+        case '.js':
+            contentType = 'text/javascript';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
     }
 
     path.exists(filePath, function(exists) {
@@ -75,7 +110,7 @@ function httpProxy(request, response, uri) {
         port: uri.port,
         path: path,
         method: request.method,
-        headers:headers
+        headers: headers
     };
     console.log(options);
     console.log(path);
@@ -98,8 +133,10 @@ function httpProxy(request, response, uri) {
     clientRequest.on('error', function(e) {
         unknownError(response, e)
     });
-    request.on('data',function(chunk){clientRequest.write(chunk);});
-    
+    request.on('data', function(chunk) {
+        clientRequest.write(chunk);
+    });
+
     clientRequest.end();
 
 }
