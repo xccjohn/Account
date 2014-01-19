@@ -5,26 +5,47 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{058aefdf-4039-4cc3-ba94-6a953079e14b}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>server\server.js</StartupFile>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>F:\projects\Account\front</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <NodeExePath />
+    <NodeExeArguments />
+    <ScriptArguments />
+    <NodejsPort />
+    <StartWebBrowser>True</StartWebBrowser>
+    <LaunchUrl />
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="web\js\ui-bootstrap-tpls-0.11.0.js" />
+    <Compile Include="web\js\ui-bootstrap-tpls-0.11.0.min.js" />
     <Content Include="server\index.html" />
     <Compile Include="server\server.js" />
+    <Content Include="server\start.bat" />
+    <Content Include="web\css\bootstrap-theme.css" />
+    <Content Include="web\css\bootstrap-theme.min.css" />
+    <Content Include="web\css\bootstrap.css" />
+    <Content Include="web\css\bootstrap.min.css" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="web\index.html" />
+    <Compile Include="web\index.js" />
     <Compile Include="web\js\angular.js" />
     <Compile Include="web\js\angular.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="server" />
     <Folder Include="web" />
+    <Folder Include="web\css\" />
+    <Folder Include="web\fonts\" />
     <Folder Include="web\js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -33,13 +54,13 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:48022/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://localhost:1337</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>

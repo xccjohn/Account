@@ -8,9 +8,11 @@ var sys = require('sys');
 var prefix = '/db/';
 var target = 'http://127.0.0.1:5984';
 
+var root = 'F:\\projects\\Account\\front';
+
 var config = {
     driver: 'msnodesql',
-    user: 'sa',
+    user: 'account',
     password: 'Win2003@',
     server: '192.168.1.101\\sql',
     database: 'ACCOUNTDB'
@@ -67,6 +69,8 @@ function httpServer(request, response) {
     var filePath = '../web' + request.url;
     if (filePath == '../web/') filePath = '../web/index.html';
 
+    filePath=root+filePath.substring(2);
+
     var extname = path.extname(filePath);
     var contentType = 'text/html';
     switch (extname) {
@@ -77,6 +81,15 @@ function httpServer(request, response) {
             contentType = 'text/css';
             break;
     }
+    //var data;
+    //request.addListener('data', function(chunk) {
+    //    data += chunk;
+    //    console.log(chunk);
+    //});
+
+    //request.addListener('end', function() {
+    //    console.log(data);
+    //});
 
     path.exists(filePath, function(exists) {
 

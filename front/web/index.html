@@ -1,15 +1,98 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="ui.bootstrap">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Examples</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="" rel="stylesheet">
-<script type="text/javascript" src="./js/angular.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Account</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="" rel="stylesheet">
+	<script type="text/javascript" src="./js/angular.js"></script>
+	<script type="text/javascript" src="./js/ui-bootstrap-tpls-0.11.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css"/>
+
+	<script type="text/javascript" src="./index.js"></script>
 </head>
-<body>
-   <div>test</div>
+
+<body class="ng-scope">
+	<header class="navbar navbar-default">
+		<div class="navbar-inner">
+			<div class="container">
+				<nav class='hidden-xs'>
+					<div>
+						<ul class="nav navbar-nav">
+							<a class="navbar-brand" href="#" role="button" >
+								<span class="glyphicon glyphicon-lock"></span>
+							</a>
+							<li>
+								<a href="#Home_Page">注册用户管理</a>
+							</li>
+							<li>
+								<a href="#Home_Page">账号信息</a>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#">john</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="glyphicon glyphicon-wrench" title="Setting"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#" >
+									<span class="glyphicon glyphicon-off" title="Login out"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container" role="main">
+			<div ng-controller='index'>
+				<h3>账号信息</h3>
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						Panel heading
+						<button class="btn btn-default">test</button>
+					</div>
+
+					<!-- Table -->
+					<table class="table">
+						<thead>
+							<tr>
+								<th>账户名</th>
+								<th>秘钥</th>
+								<th>更新时间</th>
+								<th style="text-align:center">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='l in list'>
+								<td>{{l.name}}</td>
+								<td>{{l.key}}</td>
+								<td>{{l.date}}</td>
+								<td style="text-align:center">
+									<a href="#" class="btn btn-default" role="button">编辑</a>
+									<a href="#" class="btn btn-default" role="button">获取密码</a>
+									<a href="#" class="btn btn-default" role="button">删除</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer navbar-fixed-bottom">
+		<div class="container">
+			<p class="navbar-text">&copy john</p>
+		</div>
+	</footer>
 </body>
 </html>
