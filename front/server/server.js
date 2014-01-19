@@ -9,19 +9,18 @@ var prefix = '/db/';
 var target = 'http://127.0.0.1:5984';
 
 var config = {
-   //driver:'msnodesql',
-   user: 'sa',
-   password: 'Win2003@',
-    server: './SQLEXPRESS',
-   database: 'account'
-}
-
+    driver: 'msnodesql',
+    user: 'sa',
+    password: 'Win2003@',
+    server: '192.168.1.101\\sql',
+    database: 'ACCOUNTDB'
+};
 
 http.createServer(function(request, response) {
 
     console.log('request starting...');
 
-    console.log(request.url);
+    //console.log(request.url);
 
     createSql();
 
@@ -38,23 +37,27 @@ http.createServer(function(request, response) {
 
 function createSql() {
     // body...
-    console.log(' createSql');
+    console.log('createSql');
     var connection = new sql.Connection(config);
 
-     connection.connect(function(err) {
+    connection.connect(function(err) {
         // ... error checks
         if (err) {
-
             console.log(err);
             return;
-        };
+        }
         // Query
 
-        var request = new sql.request(); // or: var request = connection.request();
+        var request = new sql.Request(connection); // or: var request = connection.request();
         request.query('select * from account', function(err, recordset) {
             // ... error checks
-           // console.log
-            console.log(recordset[0].number);
+            if (err) {
+                console.log(err);
+            }
+            // console.log
+            console.log(recordset[0]);
+
+            connection.close();
         });
     });
 }
